@@ -1,2 +1,43 @@
-# debian-vpn-install
-Script shell minimaliste pour installer automatiquement un serveur VPN, Zsh et ses plugins sur un système Debian/Ubuntu à faible capacité disque.
+# VPN Light Installer
+
+Script shell automatisé pour déployer rapidement un serveur VPN (OpenVPN), Zsh, et Oh My Zsh avec plugins, sur une machine Debian/Ubuntu avec peu d’espace disque.
+
+---
+
+## ✨ Fonctionnalités
+
+- Nettoyage et mise à jour du système
+- Installation minimale des paquets nécessaires
+- Installation de Zsh + Oh My Zsh (version partagée dans `/opt`)
+- Activation des plugins : `sudo`, `zsh-autosuggestions`, `zsh-syntax-highlighting`
+- Prompt personnalisé avec IP dynamique
+- Support multi-utilisateur (config `.zshrc` et `.zsh_history` centralisée via liens symboliques)
+- Téléchargement du script d'installation OpenVPN
+
+---
+
+## 🧾 Prérequis
+
+- Système basé sur Debian ou Ubuntu avec `apt`
+- Accès root ou `sudo`
+```sh
+  sudo usermod -aG sudo "$USER"
+```
+- openssh-server
+```sh
+  sudo apt install openssh-server
+  sudo sed -i 's/^#Port 22/Port 22/' /etc/ssh/sshd_config
+  sudo sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
+```
+- Connexion Internet
+
+---
+
+## 🚀 Installation
+
+```bash
+git clone https://github.com/Ardcord/vpn-light-installer.git
+cd vpn-light-installer
+chmod +x install.sh
+./install.sh
+```
