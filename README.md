@@ -38,6 +38,16 @@ Script shell automatisé pour déployer rapidement un serveur VPN (OpenVPN), Zsh
 ```bash
 git clone https://github.com/Ardcord/vpn-light-installer.git
 cd vpn-light-installer
-chmod +x install.sh
-./install.sh
+chmod +x install-vpn.sh
+./install-vpn.sh
 ```
+
+  Note importante : La partie VPN de ce script s'appuie sur le script maintenu par Nyr/openvpn-install,
+    https://github.com/Nyr/openvpn-install
+    
+Celui-ci est téléchargé automatiquement via :
+```sh
+wget https://git.io/vpn -O openvpn-install.sh
+```
+
+Ce script externe propose une configuration complète d'un serveur OpenVPN en quelques étapes interactives.
