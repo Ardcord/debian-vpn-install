@@ -20,7 +20,7 @@ if systemctl list-units --type=service --all | grep -q '^ssh\.service'; then
 elif systemctl list-units --type=service --all | grep -q '^sshd\.service'; then
     sudo systemctl restart sshd
 else
-    echo "[!] Aucun service SSH actif détecté (ni ssh.service ni sshd.service)"
+    echo "[!] Aucun service SSH actif détecté"
 fi
 
 echo "[+] Installation partagée de Oh My Zsh dans /opt/oh-my-zsh..."
