@@ -151,8 +151,8 @@ main() {
 	sudo apt autoremove -y -qq > /dev/null 2>&1
 	
 	echo -e "${GREEN}Lance > ${NC}source /opt/.zshrc ${GREEN}pour appliquer les changements.${NC}"
-    echo -e "${GREEN}[+] Script terminé ! Tu peux lancer :${NC}"
-    echo -e "bash openvpn-install.sh"
+    	echo -e "${GREEN}[+] Script terminé ! Tu peux lancer :${NC}"
+    	echo -e "bash openvpn-install.sh"
 }
 
 main
