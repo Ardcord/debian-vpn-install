@@ -10,7 +10,7 @@ echo "[+] Mise à jour du système..."
 sudo apt update && sudo apt upgrade -y
 
 echo "[+] Installation des paquets essentiels..."
-sudo apt install -y git curl wget zsh openvpn iproute2 net-tools # neofetch
+sudo apt install -y git curl wget zsh openvpn iproute2 net-tools neofetch
 
 # echo "[+] Configuration SSH..."
 # sudo sed -i 's/^#Port 22/Port 22/' /etc/ssh/sshd_config
