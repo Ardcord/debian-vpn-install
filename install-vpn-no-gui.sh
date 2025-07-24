@@ -149,3 +149,5 @@ main() {
 	echo -e "${GREEN}[+] Installation terminée !"
 	echo -e "${GREEN}Source ${NC}/opt/.zshrc ${GREEN}pour appliquer les changements.${NC}"
 }
+
+main
