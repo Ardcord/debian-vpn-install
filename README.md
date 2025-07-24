@@ -20,8 +20,8 @@ Script shell automatisé pour déployer rapidement un serveur VPN (OpenVPN), Zsh
 
 - Système basé sur Debian ou Ubuntu avec `apt`
 - Accès root ou `sudo`
-- `wget` ou `curl` ou git
-  
+- `wget`, `curl` ou `git`
+    
 
 - Connexion Internet
 
