@@ -31,7 +31,7 @@ Script shell automatisé pour déployer rapidement un serveur VPN (OpenVPN), Zsh
 
 wget methode
 ```sh
-wget https://raw.githubusercontent.com/Ardcord/](https://raw.githubusercontent.com/Ardcord/debian-vpn-install/main/install-vpn.sh
+wget https://raw.githubusercontent.com/Ardcord/debian-vpn-install/main/install-vpn.sh
 chmod +x install-vpn.sh
 ./install-vpn.sh
 ```
