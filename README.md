@@ -20,21 +20,23 @@ Script shell automatisé pour déployer rapidement un serveur VPN (OpenVPN), Zsh
 
 - Système basé sur Debian ou Ubuntu avec `apt`
 - Accès root ou `sudo`
-```sh
-  sudo usermod -aG sudo "$USER"
-```
-- openssh-server
-```sh
-  sudo apt install openssh-server
-  sudo sed -i 's/^#Port 22/Port 22/' /etc/ssh/sshd_config
-  sudo sed -i 's/^PermitRootLogin.*/PermitRootLogin yes/' /etc/ssh/sshd_config
-```
+- `wget` ou `curl` ou git
+  
+
 - Connexion Internet
 
 ---
 
 ## 🚀 Installation
 
+wget methode
+```sh
+wget https://raw.githubusercontent.com/Ardcord/](https://raw.githubusercontent.com/Ardcord/debian-vpn-install/main/install-vpn.sh
+chmod +x install-vpn.sh
+./install-vpn.sh
+```
+
+Git methode
 ```bash
 git clone https://github.com/Ardcord/vpn-light-installer.git
 cd vpn-light-installer
