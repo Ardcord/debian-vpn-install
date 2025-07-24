@@ -10,7 +10,7 @@ echo "[+] Mise à jour du système..."
 sudo apt update && sudo apt upgrade -y
 
 echo "[+] Installation des paquets essentiels..."
-sudo apt install -y git curl wget zsh openvpn iproute2 net-tools
+sudo apt install -y git curl wget zsh openvpn iproute2 net-tools # neofetch
 
 # echo "[+] Configuration SSH..."
 # sudo sed -i 's/^#Port 22/Port 22/' /etc/ssh/sshd_config
@@ -56,6 +56,8 @@ if [[ $(tty) == */dev/tty* ]]; then
 else
     PROMPT="%F{46}┌──[HQ🚀🌐%F{201}$(ip -4 addr | grep -v '127.0.0.1' | grep -v 'secondary' | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | sed -z 's/\n/|/g;s/|\$/\n/' | rev | cut -c 2- | rev)🔥%n%F{46}]"$'\n'"└──╼[👾]%F{44}%~ $%f "
 fi
+
+neofetch
 EOF
 
 sudo touch /opt/zsh_history
