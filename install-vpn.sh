@@ -26,23 +26,20 @@ install_essential_packages() {
 
 setup_unattended_upgrades() {
 	echo -e "${GREEN}[+] Activation des mises à jour automatiques...${NC}"
-	sudo apt install -y unattended-upgrades
-	sudo dpkg-reconfigure unattended-upgrades > /dev/null 2>&1
+	sudo apt install -y unattended-upgrades > /dev/null 2>&1
+	sudo dpkg-reconfigure unattended-upgrades
 
 	UPGRADE_FILE="/etc/apt/apt.conf.d/50unattended-upgrades"
 
-	sudo sed -i 's|^//.*\(${distro_id}:[^"]*${distro_codename}-updates";\)|\1|' "$UPGRADE_FILE"
-	sudo sed -i 's|^//\s*\(Unattended-Upgrade::Automatic-Reboot "true";\)|\1|' "$UPGRADE_FILE"
-	grep -q 'Unattended-Upgrade::Automatic-Reboot "true";' "$UPGRADE_FILE" || \
-		sudo bash -c 'echo "Unattended-Upgrade::Automatic-Reboot \"true\";" >> '"$UPGRADE_FILE"
-	sudo sed -i 's|^//\s*\(Unattended-Upgrade::Automatic-Reboot-Time "03:00";\)|\1|' "$UPGRADE_FILE"
-	grep -q 'Unattended-Upgrade::Automatic-Reboot-Time "03:00";' "$UPGRADE_FILE" || \
-		sudo bash -c 'echo "Unattended-Upgrade::Automatic-Reboot-Time \"03:00\";" >> '"$UPGRADE_FILE"
+	sudo sed -i '/"origin=Debian,codename=\${distro_codename}-updates";/s|^//[[:space:]]*|      |' "$UPGRADE_FILE"
+	sudo sed -i 's|^//[[:space:]]*Unattended-Upgrade::Automatic-Reboot "[^"]*";|Unattended-Upgrade::Automatic-Reboot "true";|' "$UPGRADE_FILE"
+	sudo sed -i 's|^//[[:space:]]*\(Unattended-Upgrade::Automatic-Reboot-Time "[^"]*";\)|\1|' "$UPGRADE_FILE"
+ 
 	sudo systemctl restart unattended-upgrades
 	echo -e "${GREEN}[+] Mises à jour automatiques configurées !"
 }
 
-
+ 
 setup_ssh() {
 	echo -e "${GREEN}[+] Installation de openssh...${NC}"
 
@@ -148,6 +145,7 @@ main() {
 	setup_ssh
 	setup_grub
 	setup_ohmyzsh
+ 	install_vpn
 	sudo apt autoremove -y -qq > /dev/null 2>&1
 	
 	echo -e "${GREEN}Lance > ${NC}source /opt/.zshrc ${GREEN}pour appliquer les changements.${NC}"
